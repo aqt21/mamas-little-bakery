@@ -1,35 +1,19 @@
-// Page of resume items to show
 import React from 'react';
-import Baby from 'babyparse';
-import $ from 'jquery';
-import AboutUsItem from './AboutUsItem';
 
-// ResumePage Component
-var AboutUsPage = React.createClass({
-	getInitialState(){
-		return{resumeItems:[]}
-	},
-
-	// When component mounts, get the data and set the state of 'resumeItems'
-	componentDidMount(){
-		$.get('data/resume.csv').then(function(data) {
-			var parsed = Baby.parse(data, {header:true});
-			this.setState({resumeItems:parsed.data})
-		}.bind(this));
-		
-		$('#resume').animate({opacity: '1'}, "slow");
-	},
-	
-	// Render a <AboutUsItem> element for each element in the state
-	render() {
-		return (
-			<div className='container' id='resume'>
-				{this.state.resumeItems.map(function(item, i) {
-						return <AboutUsItem key={'item-' + i} title={item.title} position={item.position} description={item.description} date={item.date} />
-					})}
+// Returns a about us item containing the experience, position I held, date, and description.
+var AboutUsItem = React.createClass({
+    render() {
+		return(
+			<div className='about-us-item'>
+				<div className='card-panel'>
+					<h5>{this.props.title}</h5>
+					<h6 className='position'>{this.props.position}</h6>
+					<h6>{this.props.date}</h6>
+					<p>{this.props.description}</p>
+				</div>
 			</div>
-		);
-	}
+        )
+    }
 });
 
-export default AboutUsPage;
+export default AboutUsItem;

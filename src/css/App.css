@@ -1,5 +1,5 @@
 /* App */
-#home, #projects, #resume {
+#home, #breads, #store {
 	opacity: 0;
 }
 
@@ -47,7 +47,7 @@ h1, h4, h5, h6, div, .navbar {
 	text-align: center;
 }
 
-a.link.active, i, #contact a:hover, .project h4, .prev:hover, .next:hover, .content a:hover, .resume-item h5 {
+a.link.active, i, #contact a:hover, .bread h4, .prev:hover, .next:hover, .content a:hover, .store-item h5, .about-us-item h5 {
 	color: #69a9c6;
 }
 
@@ -57,7 +57,7 @@ a.link.active, i, #contact a:hover, .project h4, .prev:hover, .next:hover, .cont
 	margin-bottom: 30px;
 }
 
-/* Project Page */
+/* Bread Page */
 .bread {
 	margin-bottom: 50px;
 }
@@ -98,21 +98,21 @@ h4 {
 	font-size: 18px;
 }
 
-/* Resume Page */
-.resume-item {
+/* About Us Page */
+.about-us-item {
 	margin: 30px 0;
 }
 
-.resume-item h6 {
+.about-us-item h6 {
 	font-style: italic;
 }
 
-.position {
+.about-us {
 	color: #b5b5b5;
 	font-size: 18px;
 }
 
-.resume-item p {
+.about-us-item p {
 	margin-top: 30px;
 }
 

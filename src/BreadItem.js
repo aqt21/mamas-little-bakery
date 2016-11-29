@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Returns a Project object showing its title, image/link, and description.
+// Returns a BreadItem object showing its title, image/link, and description.
 var BreadItem = React.createClass({
     render() {
 		return(      

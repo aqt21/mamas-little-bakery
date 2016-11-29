@@ -1,10 +1,10 @@
 import React from 'react';
 
-// Returns a resume item containing the experience, position I held, date, and description.
+// Returns a store item containing the experience, position I held, date, and description.
 var StoreItem = React.createClass({
     render() {
 		return(
-			<div className='resume-item'>
+			<div className='store-item'>
 				<div className='card-panel'>
 					<h5>{this.props.title}</h5>
 					<h6 className='position'>{this.props.position}</h6>
