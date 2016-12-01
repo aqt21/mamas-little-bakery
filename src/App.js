@@ -4,9 +4,30 @@ import './css/App.css';
 import { Link } from 'react-router';
 import '../node_modules/font-awesome/css/font-awesome.css';
 import '../node_modules/materialize-css/dist/css/materialize.css';
+import firebase from 'firebase';
+import FirebaseConfig from './Config';
 
 
 var App = React.createClass({
+	getInitialState(){
+		return{checked:false, user:null, authOption:'sign-in'}
+	},
+	
+	componentDidMount(){
+		firebase.initializeApp(FirebaseConfig);
+
+		firebase.auth().onAuthStateChanged((user) => {
+			if(this.state.checked !== true){
+				if(user){
+					this.setState({user:user});
+				}
+			}
+
+			//Indicate that state has been checked
+			this.setState({checked:true})
+		});
+	},
+
 	render() {
 		// Return links and show anything inside the <App> component (children)
 		return (
