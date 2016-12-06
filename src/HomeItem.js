@@ -8,8 +8,7 @@ var HomeItem = React.createClass({
 		return(
 			<div className='home-item'>
 				<div className='card-panel'>
-						<Link className='homelink' activeClassName='active' to='/blog'>Bread</Link>
-						<Link className='homelink' activeClassName='active' to='/store'>Store</Link>
+						<Link className='homelink' activeClassName='active' to={this.props.link}>Bread</Link>
 				</div>
 					
 			</div>
