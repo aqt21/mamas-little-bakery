@@ -3,12 +3,12 @@
 	opacity: 0;
 }
 
-body {
-	background-color: #fcfcfc;
+.children{
+	margin:0;
 }
 
-.children {
-    margin: 5px;
+body {
+	background-color: #fcfcfc;
 }
 
 #nav {
@@ -24,7 +24,7 @@ body {
 	margin: 0 20px;
 }
 
-a.link, .content a {
+a.link, .content a, .homelink {
 	text-transform: uppercase;
 }
 
@@ -34,7 +34,7 @@ a.link, .content a, #contact a {
 }
 
 h1 {
-	background-color: #69a9c6;
+	background-color: #993300;
 	color: white;
 	font-size: 36px !important;
 	font-weight: 100 !important;
@@ -51,6 +51,35 @@ a.link.active, i, #contact a:hover, .blog-item h5, .content a:hover, .store-item
 	color: #69a9c6;
 }
 
+#home{
+	background-image: url('home1.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	padding:0;
+	margin:0;
+}
+
+.container{
+	padding:0;
+	margin:0;
+}
+
+.homelink{
+	border: 2px solid white;
+	padding: 10px;
+	color: white;
+	text-decoration: none;
+	margin:30px auto;
+}
+
+.home-item{
+	width:70%;
+	height: 500px;
+	background-color: #FEEAB8;
+	margin: 40px auto;
+}
+
+
 /* Screen sizes */
 @media (min-width: 768px) {
 	h1 {
@@ -58,7 +87,7 @@ a.link.active, i, #contact a:hover, .blog-item h5, .content a:hover, .store-item
 	}
 	
     .children {
-		margin: 50px;
+		margin: 0px;
 	}
 	
 	.navbar {
