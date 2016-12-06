@@ -40,7 +40,7 @@ var BlogPage = React.createClass({
 					<div className='card-panel'>
 						<form>
 							<div className="input-field">
-							   <textarea id="writeMessage" placeholder="start writing your post..." className="materialize-textarea"></textarea>
+							   <textarea className="materialize-textarea" placeholder="start writing your post..." ></textarea>
 							</div>
 						
 							<div className="file-field input-field">
@@ -55,9 +55,9 @@ var BlogPage = React.createClass({
 								</div>
 							</div>
 							
-							<a id="post-button" className="btn-floating waves-effect waves-light">
+							<div id="post-button" className="btn-floating waves-effect waves-light">
 								<i className="fa fa-pencil"></i>
-							</a>
+							</div>
 						</form>
 					</div>
 				</div>	

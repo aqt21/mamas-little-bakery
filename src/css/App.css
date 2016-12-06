@@ -7,11 +7,6 @@
 	margin: 0;
 }
 
-.container{
-	padding: 0;
-	margin: 0;
-}
-
 body {
 	background-color: #fcfcfc;
 }
@@ -39,7 +34,7 @@ a.link, .content a, #contact a {
 }
 
 h1 {
-	background-color: #993300;
+	background-color: #7f0c0c;
 	color: white;
 	font-size: 36px !important;
 	font-weight: 100 !important;
@@ -53,7 +48,7 @@ h1, h5, h6, div, .navbar {
 }
 
 a.link.active, i, #contact a:hover, .blog-item h5, .content a:hover, .store-item h5, .about-us-item h5 {
-	color: #69a9c6;
+	color: #7f0c0c;
 
 }
 
@@ -63,15 +58,11 @@ a.link.active, i, #contact a:hover, .blog-item h5, .content a:hover, .store-item
 		font-size: 60.9px !important;
 	}
 	
-    .children {
-		margin: 0px;
-	}
-	
 	.navbar {
-		display: block
+		display: block;
 	}
 	
 	a.link {
-		margin: 100px;
+		margin: 50px;
 	}
 }
