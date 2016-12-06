@@ -1,8 +1,4 @@
 /* Home Page */
-.home-item img {
-	max-width: 100%;
-	margin-bottom: 30px;
-}
 
 #home{
 	background-image: url('home1.jpg');
@@ -20,12 +16,12 @@
 	margin:30px auto;
 }
 
-.home-item{
+/*.home-item{
 	width:70%;
 	height: 500px;
 	background-color: #FEEAB8;
 	margin: 40px auto;
-}
+}*/
 
 @media (min-width: 768px) {
 	.home-item img {

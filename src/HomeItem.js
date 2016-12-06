@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import './css/Home.css';
 
 // Returns a picture, contact information, and a bio
 var HomeItem = React.createClass({
