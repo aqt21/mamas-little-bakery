@@ -1,14 +1,20 @@
 /* App */
-#home, #breads, #store {
+#home, #blog, #store, #about-us {
 	opacity: 0;
 }
 
-body {
-	background-color: #fcfcfc;
+.children {
+	margin: 0;
 }
 
-.children {
-    margin: 5px;
+.container{
+	padding: 0;
+	margin: 0;
+}
+
+
+body {
+	background-color: #fcfcfc;
 }
 
 #nav {
@@ -24,17 +30,17 @@ body {
 	margin: 0 20px;
 }
 
-a.link, .content a {
+a.link, .content a, .homelink {
 	text-transform: uppercase;
 }
 
-a.link, .content a, #contact a, .prev, .next {
+a.link, .content a, #contact a {
     color: #b5b5b5;
 	transition: 0.6s ease;
 }
 
 h1 {
-	background-color: #69a9c6;
+	background-color: #993300;
 	color: white;
 	font-size: 36px !important;
 	font-weight: 100 !important;
@@ -42,78 +48,14 @@ h1 {
 	padding: 20px 0;
 }
  
-h1, h4, h5, h6, div, .navbar {
+h1, h5, h6, div, .navbar {
 	font-family: Roboto, 'Century Gothic', sans-serif;
 	text-align: center;
 }
 
-a.link.active, i, #contact a:hover, .bread h4, .prev:hover, .next:hover, .content a:hover, .store-item h5, .about-us-item h5 {
+a.link.active, i, #contact a:hover, .blog-item h5, .content a:hover, .store-item h5, .about-us-item h5 {
 	color: #69a9c6;
-}
 
-/* Home Page */
-.home-item img {
-	max-width: 100%;
-	margin-bottom: 30px;
-}
-
-/* Bread Page */
-.bread {
-	margin-bottom: 50px;
-}
-
-h4 {
-	margin: 20px 0 0 0 !important;
-	padding-bottom: 25px;
-	text-transform: uppercase;
-}
-
-#slideControl {
-	display: flex;
-	justify-content: space-between;
-}
-
-.prev, .next {
-	cursor: pointer;
-	padding: 0 20px 20px 20px;
-	font-weight: bold;
-	font-size: 18px;
-	transition: 0.6s ease;
-}
-
-.index {
-	padding: 0 20px 20px 20px;
-}
-
-.bread img {
-	border: 1px solid #b5b5b5;
-	width: 100%;
-}
-
-.bread .content {
-	padding: 20px 0;
-}
-
-.bread .content a{
-	font-size: 18px;
-}
-
-/* About Us Page */
-.about-us-item {
-	margin: 30px 0;
-}
-
-.about-us-item h6 {
-	font-style: italic;
-}
-
-.about-us {
-	color: #b5b5b5;
-	font-size: 18px;
-}
-
-.about-us-item p {
-	margin-top: 30px;
 }
 
 /* Screen sizes */
@@ -123,27 +65,7 @@ h4 {
 	}
 	
     .children {
-		margin: 50px;
-	}
-	
-	.home-item img {
-		margin-bottom: 0;
-	}
-	
-	.home-item .card-panel{
-		display: flex;
-		justify-content: space-between;
-	}
-
-	#contact {
-		margin-left: 20px;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-	
-	#contact p{
-		margin-bottom: 0;
+		margin: 0px;
 	}
 	
 	.navbar {

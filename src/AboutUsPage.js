@@ -2,6 +2,7 @@
 import React from 'react';
 import Baby from 'babyparse';
 import $ from 'jquery';
+import './css/AboutUs.css';
 import AboutUsItem from './AboutUsItem';
 
 // ResumePage Component

@@ -2,6 +2,7 @@
 import React from 'react';
 import $ from 'jquery';
 import HomeItem from './HomeItem';
+import './css/Home.css';
 import firebase from 'firebase';
 
 // HomePage Component
@@ -49,8 +50,8 @@ var HomePage = React.createClass({
 				// })}
 		return (
 			<div className='container' id='home'>
-				<HomeItem key={'img1'} img={'imgs/bread.jpg'} button={'Blog'} link={'./BreadPage.js'} />
-				<HomeItem key={'img2'} img={'imgs/bread2.jpg'} button={'Store'} link={'./StorePage.js'}/>
+				<HomeItem key={'img1'} img={'imgs/bread.jpg'} button={'Blog'} link={'/blog'} />
+				<HomeItem key={'img2'} img={'imgs/bread2.jpg'} button={'Store'} link={'/store'}/>
 			</div>
 		);
 	}

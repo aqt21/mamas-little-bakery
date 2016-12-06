@@ -3,6 +3,7 @@ import React from 'react';
 import './css/App.css';
 import { Link } from 'react-router';
 import '../node_modules/font-awesome/css/font-awesome.css';
+import '../node_modules/materialize-css/css/ghpages-materialize.css';
 import firebase from 'firebase';
 import FirebaseConfig from './Config';
 
@@ -12,9 +13,9 @@ var App = React.createClass({
 		return{checked:false, user:null, authOption:'sign-in'}
 	},
 	
-	componentDidMount(){
+	componentWillMount(){
 		firebase.initializeApp(FirebaseConfig);
-
+		
 		firebase.auth().onAuthStateChanged((user) => {
 			if(this.state.checked !== true){
 				if(user){
@@ -35,7 +36,7 @@ var App = React.createClass({
 					<div id='nav'>
 						<div className='navbar'>
 							<Link className='link' activeClassName='active' to='/home'>Home</Link>
-							<Link className='link' activeClassName='active' to='/bread'>Bread</Link>
+							<Link className='link' activeClassName='active' to='/blog'>Blog</Link>
 							<Link className='link' activeClassName='active' to='/store'>Store</Link>
 							<Link className='link' activeClassName='active' to='/about-us'>About Us</Link>
 						</div>
