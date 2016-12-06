@@ -4,13 +4,20 @@ import React from 'react';
 var StoreItem = React.createClass({
     render() {
 		return(
-			<div className='store-item'>
-				<div className='card-panel'>
-					<h5>{this.props.data.title}</h5>
-					<img src={this.props.data.imgurl} />
-					<p>{this.props.data.description}</p>
-					<p>{this.props.data.price}</p>
+			<div className="col s12 m7 l3">
+			  <div className="card">
+				<div className="card-image">
+				  <img src={this.props.data.imgurl} />
+				  <span className="card-title">{this.props.data.title}</span>
 				</div>
+				<div className="card-content">
+				  <p>{this.props.data.description}</p>
+				  <p>Price: {this.props.data.price}</p>
+				</div>
+				<div className="card-action">
+				  <a href="#">Buy Now</a>
+				</div>
+			  </div>
 			</div>
         )
     }

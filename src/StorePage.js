@@ -7,7 +7,13 @@ import StoreItem from './StoreItem';
 import firebase from "firebase";
 import FirebaseConfig from "./Config";
 
-// ResumePage Component
+var addProduct = React.createClass({
+	render(){
+	
+	}
+});
+
+// StorePage Component
 var StorePage = React.createClass({
 	getInitialState(){
 		return{storeItems:[]}
@@ -20,7 +26,6 @@ var StorePage = React.createClass({
 		this.storeRef.on("value", (snapshot)=> {
 			console.log("success");
 			if(snapshot.val()){
-				
 				this.setState({storeItems:snapshot.val()});
 			}
 		});
@@ -37,9 +42,13 @@ var StorePage = React.createClass({
 		
 		return (
 			<div className='container' id='store'>
+				<a className="btn-floating btn-large waves-effect waves-light red"><i className="fa fa-plus"></i></a>
+
+				<div className="row">
 				{storeKeys.map((d) => {
 						return <StoreItem key={d} data={this.state.storeItems[d]} />
 					})}
+				</div>
 			</div>
 		);
 	}
