@@ -11,7 +11,7 @@ var StoreItem = React.createClass({
 					<p>{this.props.data.description}</p>
 					<p>{this.props.data.price}</p>
 				</div>
-			</div>			
+			</div>
         )
     }
 });

@@ -4,7 +4,7 @@ import App from './App';
 import { IndexRoute, Router, Route, hashHistory } from 'react-router';
 import './css/index.css';
 import HomePage from './HomePage';
-import BreadPage from './BreadPage';
+import BlogPage from './BlogPage';
 import StorePage from './StorePage';
 import AboutUsPage from './AboutUsPage';
 
@@ -14,7 +14,7 @@ ReactDOM.render(
             <Route path='/' component={App}>
 				<IndexRoute component={HomePage}/>
                 <Route path='home' component={HomePage}/>
-                <Route path='bread' component={BreadPage}/>
+                <Route path='blog' component={BlogPage}/>
 				<Route path='store' component={StorePage}/>
 				<Route path='about-us' component={AboutUsPage}/>
             </Route>

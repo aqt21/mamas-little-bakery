@@ -3,6 +3,7 @@ import React from 'react';
 import Baby from 'babyparse';
 import $ from 'jquery';
 import HomeItem from './HomeItem';
+import './css/Home.css';
 import firebase from 'firebase';
 
 // HomePage Component

@@ -1,0 +1,33 @@
+/* Blog Page */
+.blog-item {
+	margin-bottom: 50px;
+}
+
+.blog-item h5 {
+	float: left;
+	margin: 20px 0 30px 0 !important;
+	text-align: left;
+	/* text-transform: uppercase; */
+}
+
+.blog-item img {
+	border: 1px solid #b5b5b5;
+	width: 100%;
+}
+
+.blog-item .content {
+	padding: 20px 0;
+}
+
+.blog-item .date {
+	color: #b5b5b5;
+	font-size: 16px;
+	float: right;
+	margin-top: 20px;
+	font-style: italic;
+}
+
+/* Screen sizes */
+@media (min-width: 768px) {
+
+}

@@ -36,7 +36,7 @@ var App = React.createClass({
 					<div id='nav'>
 						<div className='navbar'>
 							<Link className='link' activeClassName='active' to='/home'>Home</Link>
-							<Link className='link' activeClassName='active' to='/bread'>Bread</Link>
+							<Link className='link' activeClassName='active' to='/blog'>Blog</Link>
 							<Link className='link' activeClassName='active' to='/store'>Store</Link>
 							<Link className='link' activeClassName='active' to='/about-us'>About Us</Link>
 						</div>

@@ -2,6 +2,7 @@
 import React from 'react';
 import Baby from 'babyparse';
 import $ from 'jquery';
+import './css/Store.css';
 import StoreItem from './StoreItem';
 import firebase from "firebase";
 import FirebaseConfig from "./Config";
@@ -23,7 +24,7 @@ var StorePage = React.createClass({
 				this.setState({storeItems:snapshot.val()});
 			}
 		});
-		
+		$('#store').animate({opacity: '1'}, "slow");
 	},
 	
 	// Render a <StoreItem> element for each element in the state

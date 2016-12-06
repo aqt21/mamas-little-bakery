@@ -1,0 +1,27 @@
+/* Home Page */
+.home-item img {
+	max-width: 100%;
+	margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+	.home-item img {
+		margin-bottom: 0;
+	}
+	
+	.home-item .card-panel{
+		display: flex;
+		justify-content: space-between;
+	}
+
+	#contact {
+		margin-left: 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	
+	#contact p{
+		margin-bottom: 0;
+	}
+}
