@@ -6,10 +6,10 @@ var StoreItem = React.createClass({
 		return(
 			<div className='store-item'>
 				<div className='card-panel'>
-					<h5>{this.props.title}</h5>
-					<h6 className='position'>{this.props.position}</h6>
-					<h6>{this.props.date}</h6>
-					<p>{this.props.description}</p>
+					<h5>{this.props.data.title}</h5>
+					<img src={this.props.data.imgurl} />
+					<p>{this.props.data.description}</p>
+					<p>{this.props.data.price}</p>
 				</div>
 			</div>			
         )

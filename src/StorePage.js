@@ -3,6 +3,8 @@ import React from 'react';
 import Baby from 'babyparse';
 import $ from 'jquery';
 import StoreItem from './StoreItem';
+import firebase from "firebase";
+import FirebaseConfig from "./Config";
 
 // ResumePage Component
 var StorePage = React.createClass({
@@ -12,20 +14,30 @@ var StorePage = React.createClass({
 
 	// When component mounts, get the data and set the state of 'storeItems'
 	componentDidMount(){
-		$.get('data/store.csv').then(function(data) {
-			var parsed = Baby.parse(data, {header:true});
-			this.setState({storeItems:parsed.data})
-		}.bind(this));
+		this.storeRef = firebase.database().ref("Store");
+		console.log("success");
+		this.storeRef.on("value", (snapshot)=> {
+			console.log("success");
+			if(snapshot.val()){
+				
+				this.setState({storeItems:snapshot.val()});
+			}
+		});
 		
-		$('#store').animate({opacity: '1'}, "slow");
 	},
 	
 	// Render a <StoreItem> element for each element in the state
 	render() {
+		let storeKeys = Object.keys(this.state.storeItems).sort((a,b) => {
+            return this.state.storeItems[b].likes - this.state.storeItems[a].likes
+        });
+		
+		console.log(this.state.storeItems);
+		
 		return (
 			<div className='container' id='store'>
-				{this.state.storeItems.map(function(item, i) {
-						return <StoreItem key={'item-' + i} title={item.title} position={item.position} description={item.description} date={item.date} />
+				{storeKeys.map((d) => {
+						return <StoreItem key={d} data={this.state.storeItems[d]} />
 					})}
 			</div>
 		);

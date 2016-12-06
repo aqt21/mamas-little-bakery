@@ -13,9 +13,9 @@ var App = React.createClass({
 		return{checked:false, user:null, authOption:'sign-in'}
 	},
 	
-	componentDidMount(){
+	componentWillMount(){
 		firebase.initializeApp(FirebaseConfig);
-
+		
 		firebase.auth().onAuthStateChanged((user) => {
 			if(this.state.checked !== true){
 				if(user){
