@@ -1,6 +1,5 @@
 // Page of information about me
 import React from 'react';
-import Baby from 'babyparse';
 import $ from 'jquery';
 import HomeItem from './HomeItem';
 import firebase from 'firebase';
@@ -13,8 +12,19 @@ var HomePage = React.createClass({
 
 	// When component mounts, get the data and set the state of 'homeItem'
 	componentDidMount(){
-		//get data from Firebase
 		this.homePageRef = firebase.database().ref('homePage');
+
+		//for testing; add data
+		this.homePageRef.push({
+			img: './bread.jpg',
+		})
+
+		this.homePageRef.push({
+			img: './bread2.jpg'
+		})
+
+		//get data from Firebase
+		
 		this.homePageRef.on('value', (snapshot) => {
 			if(snapshot.val()){
 				this.setState({imgs:snapshot.val()});
@@ -26,12 +36,21 @@ var HomePage = React.createClass({
 	
 	// Render a <HomeItem> element
 	render() {
-		var backgroundImg1 = this.state.imgs[0];
-		var backgroundImg2 = this.state.imgs[1];
+		//let backImgs = Object.keys(this.state.imgs);
+		//var backgroundImg1 = this.state.imgs[0].img;
+		//var backgroundImg2 = this.state.imgs[1].img;
+		
+		//img = {this.state.imgs[d]}
+				// 		{backImgs.map((d)=> {
+				// 	return <HomeItem key={d}
+				// 			img={this.state.imgs[d]} 
+				// 			button={'Blog'}
+				// 			link={'./BreadPage'}/>
+				// })}
 		return (
 			<div className='container' id='home'>
-				<HomeItem key={'img1'} img={backgroundImg1} button={'Button title 1'} link={'page link 1'} />
-				<HomeItem key={'img2'} img={backgroundImg2} button={'Button title 2'} link={'page link 2'}/>
+				<HomeItem key={'img1'} img={'imgs/bread.jpg'} button={'Blog'} link={'./BreadPage.js'} />
+				<HomeItem key={'img2'} img={'imgs/bread2.jpg'} button={'Store'} link={'./StorePage.js'}/>
 			</div>
 		);
 	}
