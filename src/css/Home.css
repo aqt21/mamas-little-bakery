@@ -4,6 +4,29 @@
 	margin-bottom: 30px;
 }
 
+#home{
+	background-image: url('home1.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	padding:0;
+	margin:0;
+}
+
+.homelink{
+	border: 2px solid white;
+	padding: 10px;
+	color: white;
+	text-decoration: none;
+	margin:30px auto;
+}
+
+.home-item{
+	width:70%;
+	height: 500px;
+	background-color: #FEEAB8;
+	margin: 40px auto;
+}
+
 @media (min-width: 768px) {
 	.home-item img {
 		margin-bottom: 0;

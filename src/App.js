@@ -3,6 +3,7 @@ import React from 'react';
 import './css/App.css';
 import { Link } from 'react-router';
 import '../node_modules/font-awesome/css/font-awesome.css';
+import '../node_modules/materialize-css/css/ghpages-materialize.css';
 import firebase from 'firebase';
 import FirebaseConfig from './Config';
 

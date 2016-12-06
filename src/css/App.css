@@ -3,9 +3,15 @@
 	opacity: 0;
 }
 
-.children{
-	margin:0;
+.children {
+	margin: 0;
 }
+
+.container{
+	padding: 0;
+	margin: 0;
+}
+
 
 body {
 	background-color: #fcfcfc;
@@ -49,36 +55,8 @@ h1, h5, h6, div, .navbar {
 
 a.link.active, i, #contact a:hover, .blog-item h5, .content a:hover, .store-item h5, .about-us-item h5 {
 	color: #69a9c6;
-}
 
-#home{
-	background-image: url('home1.jpg');
-	background-size: cover;
-	background-attachment: fixed;
-	padding:0;
-	margin:0;
 }
-
-.container{
-	padding:0;
-	margin:0;
-}
-
-.homelink{
-	border: 2px solid white;
-	padding: 10px;
-	color: white;
-	text-decoration: none;
-	margin:30px auto;
-}
-
-.home-item{
-	width:70%;
-	height: 500px;
-	background-color: #FEEAB8;
-	margin: 40px auto;
-}
-
 
 /* Screen sizes */
 @media (min-width: 768px) {
