@@ -1,6 +1,6 @@
 /* Blog Page */
 .blog-item {
-	margin-bottom: 50px;
+	margin: 30px;
 }
 
 .blog-item h5 {
@@ -25,6 +25,26 @@
 	float: right;
 	margin-top: 20px;
 	font-style: italic;
+}
+
+#writeMessage {
+	font-size: 16px;
+	padding-bottom: 0;
+	width: 80%;
+}
+
+#post-button {
+	/* position: absolute; */
+	/* top: 18px; */
+	/* right: 10px; */
+}
+
+#upload-button {
+	float: left;
+}
+
+#file-name {
+	/* width: 83%; */
 }
 
 /* Screen sizes */

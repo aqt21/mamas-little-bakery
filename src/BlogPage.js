@@ -18,11 +18,14 @@ var BlogPage = React.createClass({
 		this.blogRef.on("value", (snapshot)=> {
 			console.log("success");
 			if(snapshot.val()){
-				
 				this.setState({blogItems:snapshot.val()});
 			}
 		});
 		$('#blog').animate({opacity: '1'}, "slow");
+	},
+	
+	makePost(){
+		
 	},
 	
 	// Render a <BlogItem> element for each element in the state
@@ -31,10 +34,33 @@ var BlogPage = React.createClass({
             return this.state.blogItems[b].likes - this.state.blogItems[a].likes
         });
 		
-		console.log(this.state.blogItems);
-		
 		return (
 			<div className='container' id='blog'>
+				<div className='blog-post'>
+					<div className='card-panel'>
+						<form>
+							<div className="input-field">
+							   <textarea id="writeMessage" placeholder="start writing your post..." className="materialize-textarea"></textarea>
+							</div>
+						
+							<div className="file-field input-field">
+								
+								<div className="btn">
+									<span>Photo</span>
+									<input type="file" id="pic-upload" />
+								</div>
+								
+								<div className="file-path-wrapper">
+									<input id="file-name" className="file-path validate" type="text" />
+								</div>
+							</div>
+							
+							<a id="post-button" className="btn-floating waves-effect waves-light">
+								<i className="fa fa-pencil"></i>
+							</a>
+						</form>
+					</div>
+				</div>	
 				{blogKeys.map((d) => {
 					return <BlogItem key={d} data={this.state.blogItems[d]} />
 				})}
