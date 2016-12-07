@@ -8,8 +8,9 @@ var HomeItem = React.createClass({
     	//<img src={this.props.img} alt='background'/>
 		return(
 			<div className='home-item'>
-				<div className='card-panel'>
-						<Link className='homelink' activeClassName='active' to={this.props.link}>Bread</Link>
+				<div>
+					<p className="hometext">{this.props.text} </p>
+					<Link className='homelink' activeClassName='active' to={this.props.link}>{this.props.page}</Link>
 				</div>
 					
 			</div>

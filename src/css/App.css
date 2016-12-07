@@ -1,4 +1,6 @@
 /* App */
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
 #home, #blog, #store, #about-us {
 	opacity: 0;
 }
@@ -40,9 +42,10 @@ h1 {
 	font-weight: 100 !important;
 	margin: 0 !important;
 	padding: 20px 0;
+	font-family: Lobster;
 }
  
-h1, h5, h6, div, .navbar {
+h5, h6, div, .navbar {
 	font-family: Roboto, 'Century Gothic', sans-serif;
 	text-align: center;
 }

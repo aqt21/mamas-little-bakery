@@ -15,15 +15,6 @@ var HomePage = React.createClass({
 	componentDidMount(){
 		this.homePageRef = firebase.database().ref('homePage');
 
-		//for testing; add data
-		this.homePageRef.push({
-			img: './bread.jpg',
-		})
-
-		this.homePageRef.push({
-			img: './bread2.jpg'
-		})
-
 		//get data from Firebase
 		
 		this.homePageRef.on('value', (snapshot) => {
@@ -50,8 +41,8 @@ var HomePage = React.createClass({
 				// })}
 		return (
 			<div className='container' id='home'>
-				<HomeItem key={'img1'} img={'imgs/bread.jpg'} button={'Blog'} link={'/blog'} />
-				<HomeItem key={'img2'} img={'imgs/bread2.jpg'} button={'Store'} link={'/store'}/>
+				<HomeItem key={'img1'} img={'imgs/bread.jpg'} page={'View Our Breads'} link={'/blog'} text={"Our blog is continually updated with the delicious breads we're baking!"}/>
+				<HomeItem key={'img2'} img={'imgs/bread2.jpg'} page={'Check Out the Store'} link={'/store'} text={'Would you like to purchase some nutritional and healthy breads for you and your family?'}/>
 			</div>
 		);
 	}

@@ -4,24 +4,33 @@
 	background-image: url('home1.jpg');
 	background-size: cover;
 	background-attachment: fixed;
-	padding:0;
-	margin:0;
+	padding:30px;
+	width:100%;
+	margin:0 auto;
 }
 
 .homelink{
 	border: 2px solid white;
-	padding: 10px;
+	padding: 16px;
 	color: white;
 	text-decoration: none;
+	font-size: 1.5em;
 	margin:30px auto;
 }
 
-/*.home-item{
+.home-item{
 	width:70%;
-	height: 500px;
-	background-color: #FEEAB8;
-	margin: 40px auto;
-}*/
+	padding: 80px;
+	background-color: #784212;
+	margin: 30px auto;
+	position:relative;
+}
+
+.hometext{
+	color: #FDEBD0;
+	font-family: Roboto;
+	margin-bottom: 60px;
+}
 
 @media (min-width: 768px) {
 	.home-item img {
@@ -33,14 +42,4 @@
 		justify-content: space-between;
 	}
 
-	#contact {
-		margin-left: 20px;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-	
-	#contact p{
-		margin-bottom: 0;
-	}
 }
