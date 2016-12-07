@@ -6,6 +6,10 @@ import '../node_modules/font-awesome/css/font-awesome.css';
 import '../node_modules/materialize-css/css/ghpages-materialize.css';
 import firebase from 'firebase';
 import FirebaseConfig from './Config';
+import SignUp from './SignUp';
+import SignIn from './SignIn';
+import SignOut from './SignOut';
+import ToggleAuth from './ToggleAuth';
 
 
 var App = React.createClass({
@@ -98,6 +102,13 @@ var App = React.createClass({
 							{authComponent}
 							<ToggleAuth handleClick={this.toggleLogin} authOption={this.state.authOption} />
 						</div>
+					}
+
+					{
+						this.state.user &&
+						<section>
+							<SignOut submit={this.signOut}/>
+						</section>
 					}
 					<div id='nav'>
 						<div className='navbar'>
