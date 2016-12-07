@@ -13,7 +13,7 @@ var App = React.createClass({
 		return{checked:false, user:null, authOption:'sign-in'}
 	},
 	
-	componentWillMount(){
+	componentDidMount(){
 		firebase.initializeApp(FirebaseConfig);
 		
 		firebase.auth().onAuthStateChanged((user) => {
@@ -25,6 +25,53 @@ var App = React.createClass({
 
 			//Indicate that state has been checked
 			this.setState({checked:true})
+		});
+	},
+
+	signUp(event){
+		event.preventDefault();
+
+		//get form values
+		let email = event.target.elements['email'].value;
+		let password = event.target.elements['password'].value;
+		let displayName = event.target.elements['displayName'].value;
+		//let adminCode = event.target.elements['adminCode'].value;
+		//var admin = (adminCode == ADMIN_CODE)
+		//update profile, admin: admin
+
+		//create user
+		firebase.auth().createUserWithEmailAndPassword(email,password)
+		.then((user)=> {
+			user.updateProfile({
+				displayName: displayName
+			}).then(() => {
+				this.setState({user:firebase.auth().currentUser});
+			})
+		});
+
+		event.target.reset();
+	},
+
+	signIn(event){
+		event.preventDefault();
+
+		let email = event.target.elements['email'].value;
+		let password = event.target.elements['password'].value;
+
+
+		//sign in
+		firebase.auth().signInWithEmailAndPassword(email,password)
+		.then((user) => {
+			this.setState({user:firebase.auth().currentUser});
+		})
+
+		//clear form
+		event.target.reset();
+	},
+
+	signOut(){
+		firebase.auth().signOut().then(() => {
+			this.setState({user:null});
 		});
 	},
 
