@@ -75,11 +75,30 @@ var App = React.createClass({
 		});
 	},
 
+	toggleLogin(){
+		let option = this.state.authOption == 'sign=in' ? 'sign-up' : 'sign-in';
+		this.setState({authOption:option});
+	},
+
 	render() {
+		//auth stuff
+		if(this.state.authOption == 'sign-up') {
+			var authComponent = <SignUp submit={this.signUp}/>
+		}
+		else{
+			var authComponent = <SignIn submit={this.signIn}/>
+		}
+
 		// Return links and show anything inside the <App> component (children)
 		return (
 				<div className='App'>
 					<h1>Mama's Little Bakery</h1>
+					{!this.state.user && 
+						<div>
+							{authComponent}
+							<ToggleAuth handleClick={this.toggleLogin} authOption={this.state.authOption} />
+						</div>
+					}
 					<div id='nav'>
 						<div className='navbar'>
 							<Link className='link' activeClassName='active' to='/home'>Home</Link>
