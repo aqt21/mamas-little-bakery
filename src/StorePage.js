@@ -65,40 +65,42 @@ var StorePage = React.createClass({
 		console.log(this.state.storeItems);
 		
 		return (
-			<div className='container' id='store'>
-				<form className="col s12 active" onSubmit = {this.createProduct}>
-					<div className="input-field col s6">
-						<input id="title" type="text"></input>
-						<label htmlFor="title">Product Title</label>
+			<div  id='store'>
+				<div className='container'>
+					<form className="col s12 active" onSubmit = {this.createProduct}>
+						<div className="input-field col s6">
+							<input id="title" type="text"></input>
+							<label htmlFor="title">Product Title</label>
+						</div>
+						
+						<div className="input-field col s6" >
+							<textarea className="materialize-textarea" id="description" type="text"></textarea>
+							<label htmlFor="description">Product Description</label>
+						</div>
+						
+						<div className="input-field col s6">
+							<input id="price" type="text"></input>
+							<label htmlFor="price">Product Price</label>
+						</div>
+						
+						<div className="input-field col s6">
+							<FileUploader
+								accept="image/*"
+								randomizeFilename
+								storageRef={firebase.storage().ref("images")}
+								onUploadStart={this.handleUploadStart}
+								onUploadError={this.handleUploadError}
+								onUploadSuccess={this.handleUploadSuccess}
+								onProgress={this.handleProgress}
+							  />
+						</div>
+						<button type="submit" className="submit btn waves-effect waves-light light-blue lighten-2" name="action">Post Product<i className="material-icons right"></i></button>
+					</form>
+					<div className="row">
+					{storeKeys.map((d) => {
+							return <StoreItem key={d} data={this.state.storeItems[d]} />
+						})}
 					</div>
-					
-					<div className="input-field col s6">
-						<textarea className="materialize-textarea" id="description" type="text"></textarea>
-						<label htmlFor="description">Product Description</label>
-					</div>
-					
-					<div className="input-field col s6">
-						<input id="price" type="text"></input>
-						<label htmlFor="price">Product Price</label>
-					</div>
-					
-					<div className="input-field col s6">
-						<FileUploader
-							accept="image/*"
-							randomizeFilename
-							storageRef={firebase.storage().ref("images")}
-							onUploadStart={this.handleUploadStart}
-							onUploadError={this.handleUploadError}
-							onUploadSuccess={this.handleUploadSuccess}
-							onProgress={this.handleProgress}
-						  />
-					</div>
-					<button type="submit" className="submit btn waves-effect waves-light light-blue lighten-2" name="action">Post Product<i className="material-icons right"></i></button>
-				</form>
-				<div className="row">
-				{storeKeys.map((d) => {
-						return <StoreItem key={d} data={this.state.storeItems[d]} />
-					})}
 				</div>
 			</div>
 		);

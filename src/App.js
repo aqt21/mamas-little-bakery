@@ -10,7 +10,7 @@ import SignUp from './SignUp';
 import SignIn from './SignIn';
 import SignOut from './SignOut';
 import ToggleAuth from './ToggleAuth';
-
+import Materialize from "materialize-css";
 
 var App = React.createClass({
 	getInitialState(){
@@ -30,8 +30,22 @@ var App = React.createClass({
 			//Indicate that state has been checked
 			this.setState({checked:true})
 		});
+		
+		/*
+		this.codeRef = firebase.database().ref("AdminCode");
+		let adminCodeArray;
+		this.codeRef.on("value", (snapshot)=> {
+			console.log("success");
+			if(snapshot.val()){
+				adminCodeArray = snapshot.val();
+				console.log(adminCodeArray);
+			}
+		});
+		this.ADMIN_CODE = adminCodeArray[0];
+		this.userRef = firebase.database().ref("Users");
+		*/
 	},
-
+	/*
 	signUp(event){
 		event.preventDefault();
 
@@ -39,8 +53,9 @@ var App = React.createClass({
 		let email = event.target.elements['email'].value;
 		let password = event.target.elements['password'].value;
 		let displayName = event.target.elements['displayName'].value;
-		//let adminCode = event.target.elements['adminCode'].value;
-		//var admin = (adminCode == ADMIN_CODE)
+		let adminCode = event.target.elements['adminCode'].value;
+		var admin = (adminCode === this.ADMIN_CODE);
+		console.log(admin);
 		//update profile, admin: admin
 
 		//create user
@@ -68,7 +83,6 @@ var App = React.createClass({
 		.then((user) => {
 			this.setState({user:firebase.auth().currentUser});
 		})
-
 		//clear form
 		event.target.reset();
 	},
@@ -83,7 +97,7 @@ var App = React.createClass({
 		let option = this.state.authOption == 'sign=in' ? 'sign-up' : 'sign-in';
 		this.setState({authOption:option});
 	},
-
+	*/
 	render() {
 		//auth stuff
 		if(this.state.authOption == 'sign-up') {
@@ -97,24 +111,15 @@ var App = React.createClass({
 		return (
 				<div className='App'>
 					<h1>Mama's Little Bakery</h1>
-					{!this.state.user && 
-						<div>
-							{authComponent}
-							<ToggleAuth handleClick={this.toggleLogin} authOption={this.state.authOption} />
-						</div>
-					}
-					{
-						this.state.user &&
-						<section>
-							<SignOut submit={this.signOut}/>
-						</section>
-					}
+
+					
 					<div id='nav'>
 						<div className='navbar'>
 							<Link className='link' activeClassName='active' to='/home'>Home</Link>
 							<Link className='link' activeClassName='active' to='/blog'>Blog</Link>
 							<Link className='link' activeClassName='active' to='/store'>Store</Link>
 							<Link className='link' activeClassName='active' to='/about-us'>About Us</Link>
+							<Link className='link' activeClassName='active' to='/sign-in'>Your Account</Link>
 						</div>
 					</div>
 					<div className='children'>
@@ -124,4 +129,5 @@ var App = React.createClass({
 		);
 	}
 });
+
 export default App;
