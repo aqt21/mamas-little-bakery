@@ -7,6 +7,7 @@ import HomePage from './HomePage';
 import BlogPage from './BlogPage';
 import StorePage from './StorePage';
 import AboutUsPage from './AboutUsPage';
+import SignInPage from './SignInPage';
 
 // Render DOM
 ReactDOM.render(
@@ -17,6 +18,7 @@ ReactDOM.render(
                 <Route path='blog' component={BlogPage}/>
 				<Route path='store' component={StorePage}/>
 				<Route path='about-us' component={AboutUsPage}/>
+                <Route path='sign-in' component={SignInPage}/>
             </Route>
         </Router>,
   document.getElementById('root')

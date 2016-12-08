@@ -1,7 +1,7 @@
 // Sign up
 import React from 'react';
 
-var SignUp = React.createClass({
+var SignIn = React.createClass({
     render() {
         return(
             <section className="container">
@@ -24,4 +24,4 @@ var SignUp = React.createClass({
     }
 });
 
-export default SignUp;
+export default SignIn;

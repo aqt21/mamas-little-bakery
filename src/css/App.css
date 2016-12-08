@@ -55,6 +55,10 @@ a.link.active, i, #contact a:hover, .blog-item h5, .content a:hover, .store-item
 
 }
 
+#adminDiv{
+	display:none;
+}
+
 /* Screen sizes */
 @media (min-width: 768px) {
 	h1 {

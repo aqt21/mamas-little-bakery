@@ -1,6 +1,5 @@
 // Sign up
 import React from 'react';
-import './SignOut.css';
 
 var SignOut = React.createClass({
     render() {

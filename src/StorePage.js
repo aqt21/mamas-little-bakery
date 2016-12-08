@@ -1,6 +1,5 @@
 // Page of store items to show
 import React from 'react';
-import Baby from 'babyparse';
 import $ from 'jquery';
 import './css/Store.css';
 import StoreItem from './StoreItem';
@@ -21,6 +20,7 @@ var StorePage = React.createClass({
 
 	// When component mounts, get the data and set the state of 'storeItems'
 	componentDidMount(){
+		firebase.initializeApp(FirebaseConfig);
 		this.storeRef = firebase.database().ref("Store");
 		console.log("success");
 		this.storeRef.on("value", (snapshot)=> {
