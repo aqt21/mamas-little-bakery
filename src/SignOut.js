@@ -1,4 +1,4 @@
-// Sign up
+// Sign out
 import React from 'react';
 
 var SignOut = React.createClass({

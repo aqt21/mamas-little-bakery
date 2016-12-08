@@ -12,7 +12,6 @@ import SignOut from './SignOut';
 import ToggleAuth from './ToggleAuth';
 import Materialize from "materialize-css";
 
-
 var App = React.createClass({
 	getInitialState(){
 		return{checked:false, user:null, authOption:'sign-in'}
