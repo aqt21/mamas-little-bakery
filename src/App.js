@@ -10,6 +10,7 @@ import SignUp from './SignUp';
 import SignIn from './SignIn';
 import SignOut from './SignOut';
 import ToggleAuth from './ToggleAuth';
+import Materialize from "materialize-css";
 
 
 var App = React.createClass({
