@@ -15,7 +15,7 @@ var StorePage = React.createClass({
 
 	// When component mounts, get the data and set the state of 'storeItems'
 	componentDidMount(){
-		firebase.initializeApp(FirebaseConfig);
+
 		this.storeRef = firebase.database().ref("Store");
 		console.log("success");
 		this.storeRef.on("value", (snapshot)=> {

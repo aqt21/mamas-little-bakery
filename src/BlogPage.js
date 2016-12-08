@@ -14,9 +14,7 @@ var BlogPage = React.createClass({
 
 	// When component mounts, get the data and set the state of 'blogItems'
 	componentDidMount(){
-		firebase.initializeApp(FirebaseConfig);
 
-		
 		this.blogRef = firebase.database().ref("Blog");
 		console.log("success");
 		this.blogRef.on("value", (snapshot)=> {
