@@ -5,7 +5,7 @@
 	opacity: 0;
 }
 
-.children {
+.children, #signin .row {
 	margin: 0;
 }
 
@@ -40,7 +40,6 @@ a.link, #contact a {
 }
 
 h1 {
-	background-color: #5B2C6F;
 	color: white;
 	font-size: 36px !important;
 	font-weight: 100 !important;
@@ -54,7 +53,7 @@ h5, h6, div, .navbar {
 	text-align: center;
 }
 
-h1, .btn {
+h1, #footer, .btn {
 	background-color: #5B2C6F !important;
 }
 
@@ -77,9 +76,21 @@ input[type=text]:focus:not([readonly]), input[type=email]:focus, input[type=pass
     box-shadow: 0 1px 0 0 #BB6B25 !important;
 }
 
-#adminDiv{
+#adminDiv {
 	display:none;
 }
+
+#signin div {
+	color: white;
+	padding: 20px;
+}
+
+#signin-button {
+	margin-left: 5px;
+}
+
+
+
 
 /* Screen sizes */
 @media (min-width: 768px) {

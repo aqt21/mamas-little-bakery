@@ -78,10 +78,6 @@ var BlogPage = React.createClass({
 	
 	// Render a <BlogItem> element for each element in the state
 	render() {
-		
-		  let postKeys = Object.keys(this.state.blogItems).sort((a,b) => {
-            return this.state.blogItems[b].likes - this.state.blogItems[a].likes
-        });
 		return (
 			<div className='container' id='blog'>
 				<PostBox handleSubmit={this.createPost}
@@ -91,7 +87,7 @@ var BlogPage = React.createClass({
 					handleUploadSuccess={this.handleUploadSuccess}
 					handleProgress={this.handleProgress}
 				/>
-				{postKeys.map((d) => {
+				{Object.keys(this.state.blogItems).map((d) => {
 					return <BlogItem key={d} data={this.state.blogItems[d]} likePost={() => this.likePost(d)}
 					/>
 				})}

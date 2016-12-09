@@ -10,7 +10,7 @@ var SignIn = React.createClass({
     render() {
         return(
             <div className="container" id="signin">
-                <p onClick={this.show}>Administrator Sign-In</p>
+                <div onClick={this.show}>Administrator Sign-In</div>
                 <form onSubmit={this.props.submit} className="col s4 authenticate" id="sign-up">
                     <div className="row" id="inputs">
 						<input id="email" type="email" placeholder="Email" className="validate form col s4" />

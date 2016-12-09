@@ -12,6 +12,7 @@
 }
 
 .blog-item h5 {
+	text-align: left;
 	float: left;
 	margin: 0;
 }

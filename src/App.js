@@ -9,7 +9,6 @@ import FirebaseConfig from './Config';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 import SignOut from './SignOut';
-import ToggleAuth from './ToggleAuth';
 import Materialize from "materialize-css";
 
 var App = React.createClass({
@@ -79,13 +78,15 @@ var App = React.createClass({
 					<div className='children'>
 						{childrenWithProps}
 					</div>
-					{!this.state.user &&
-						<SignIn submit={this.signIn} />
-					}
-					{this.state.user &&
-						<SignOut submit={this.signOut} />
-					}
 					
+					<div id='footer'>
+						{!this.state.user &&
+							<SignIn submit={this.signIn} />
+						}
+						{this.state.user &&
+							<SignOut submit={this.signOut} />
+						}
+					</div>
 				</div>
 		);
 	}
