@@ -10,7 +10,7 @@ import FileUploader from 'react-firebase-file-uploader';
 // StorePage Component
 var StorePage = React.createClass({
 	getInitialState(){
-		return{storeItems:[], isUploading:false, progress:0, picUrl:""}
+		return{storeItems:[], isUploading:false, uploadPicUrl:"", currRefId:"", showInfo:false}
 	},
 
 	// When component mounts, get the data and set the state of 'storeItems'
@@ -32,18 +32,23 @@ var StorePage = React.createClass({
 		
 		this.storeRef.push({
 			title: event.target.elements["title"].value,
-			imgurl: this.state.picUrl,
+			imgurl: this.state.uploadPicUrl,
 			description: event.target.elements["description"].value,
 			price: "$" + event.target.elements["price"].value
 		});
 	},
 	
+	showProductInfo(event) {
+		this.setState({currRefId: event.target.id, showInfo:true});
+		console.log(event.target.id)
+	},
+	
 	handleUploadStart(){
-		this.setState({isUploading: true, progress: 0})
+		this.setState({isUploading: true})
 	},
 	
 	handleProgress(progress){
-		this.setState({progress})
+		
 	},
 	
 	handleUploadError(error){
@@ -52,8 +57,8 @@ var StorePage = React.createClass({
 	},
 	
 	handleUploadSuccess(filename){
-	  this.setState({avatar: filename, progress: 100, isUploading: false});
-	  firebase.storage().ref('images').child(filename).getDownloadURL().then(url => this.setState({picUrl: url}));
+	  this.setState({avatar: filename, isUploading: false});
+	  firebase.storage().ref('images').child(filename).getDownloadURL().then(url => this.setState({uploadPicUrl: url}));
 	},
 	
 	// Render a <StoreItem> element for each element in the state
@@ -62,12 +67,30 @@ var StorePage = React.createClass({
             return this.state.storeItems[b].likes - this.state.storeItems[a].likes
         });
 		
-		console.log(this.state.storeItems);
-		
+		let currRef = this.state.currRefId;
+		console.log(currRef);
 		return (
 			<div  id='store'>
 				<div className='container'>
 					<form className="col s12 active" onSubmit = {this.createProduct}>
+						{(this.state.showInfo ?
+							<div className="card horizontal" id="productinfo">
+								<div className="card-image">
+									<img src={this.state.storeItems[currRef].imgurl} />
+								</div>
+								<div className="card-stacked">
+									<div className="card-content">
+									<h2>{this.state.storeItems[currRef].title}</h2>
+									<p>{this.state.storeItems[currRef].description}</p>
+									<p>{this.state.storeItems[currRef].price}</p>
+									</div>
+									<div className="card-action">
+										<a href="#">Buy Now</a>
+									</div>
+								</div>
+							</div>
+						: false
+						)}
 						<div className="input-field col s6">
 							<input id="title" type="text"></input>
 							<label htmlFor="title">Product Title</label>
@@ -98,7 +121,7 @@ var StorePage = React.createClass({
 					</form>
 					<div className="row">
 					{storeKeys.map((d) => {
-							return <StoreItem key={d} data={this.state.storeItems[d]} />
+							return <StoreItem key={d} productRef={d} data={this.state.storeItems[d]} handleClick={this.showProductInfo}/>
 						})}
 					</div>
 				</div>

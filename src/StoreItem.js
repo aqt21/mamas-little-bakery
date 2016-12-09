@@ -15,8 +15,8 @@ var StoreItem = React.createClass({
 				  <p>Price: {this.props.data.price}</p>
 				</div>
 				<div className="card-action">
-				  <a className="s6" href="#">Buy Now</a>
-				  <a className="s6" href="#">More Info</a>
+				  <a className="s6" >Buy Now</a>
+				  <a className="s6" onClick={this.props.handleClick} id={this.props.productRef}>More Info</a>
 				</div>
 			  </div>
 			</div>
