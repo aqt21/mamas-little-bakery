@@ -18,7 +18,6 @@ ReactDOM.render(
                 <Route path='blog' component={BlogPage}/>
 				<Route path='store' component={StorePage}/>
 				<Route path='about-us' component={AboutUsPage}/>
-                <Route path='sign-in' component={SignInPage}/>
             </Route>
         </Router>,
   document.getElementById('root')

@@ -31,9 +31,9 @@ var App = React.createClass({
 			this.setState({checked:true})
 		});
 		
-		/*
+		
 		this.codeRef = firebase.database().ref("AdminCode");
-		let adminCodeArray;
+		var adminCodeArray;
 		this.codeRef.on("value", (snapshot)=> {
 			console.log("success");
 			if(snapshot.val()){
@@ -41,11 +41,11 @@ var App = React.createClass({
 				console.log(adminCodeArray);
 			}
 		});
-		this.ADMIN_CODE = adminCodeArray[0];
-		this.userRef = firebase.database().ref("Users");
-		*/
+		//this.ADMIN_CODE = adminCodeArray[0];
+		//this.userRef = firebase.database().ref("Users");
+		
 	},
-	/*
+	
 	signUp(event){
 		event.preventDefault();
 
@@ -97,7 +97,7 @@ var App = React.createClass({
 		let option = this.state.authOption == 'sign=in' ? 'sign-up' : 'sign-in';
 		this.setState({authOption:option});
 	},
-	*/
+	
 	render() {
 		//auth stuff
 		if(this.state.authOption == 'sign-up') {
@@ -111,7 +111,7 @@ var App = React.createClass({
 		return (
 				<div className='App'>
 					<h1>Mama's Little Bakery</h1>
-
+					
 					
 					<div id='nav'>
 						<div className='navbar'>
@@ -119,12 +119,14 @@ var App = React.createClass({
 							<Link className='link' activeClassName='active' to='/blog'>Blog</Link>
 							<Link className='link' activeClassName='active' to='/store'>Store</Link>
 							<Link className='link' activeClassName='active' to='/about-us'>About Us</Link>
-							<Link className='link' activeClassName='active' to='/sign-in'>Your Account</Link>
 						</div>
 					</div>
+
+
 					<div className='children'>
 						{this.props.children}
 					</div>
+					<SignIn submit={this.signIn} />
 				</div>
 		);
 	}

@@ -4,22 +4,19 @@ import React from 'react';
 var SignIn = React.createClass({
     render() {
         return(
-            <section className="container">
-                <h3>Sign Into Your Account</h3>
-                <form onSubmit={this.props.submit} className="col s12 authenticate" id="sign-up">
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="email" type="email" className="validate" />
-                            <label htmlFor="email">Email</label>
-                        </div>
-                        <div className="input-field col s12">
-                            <input id="password" type="password" className="validate" />
-                            <label htmlFor="password">Password</label>
-                        </div>
+            <div className="container" id="signin">
+                <p>Administrator Sign-In</p>
+                <form onSubmit={this.props.submit} className="col s4 authenticate" id="sign-up">
+                    <div className="row inputs">
+                        
+                            <input id="email" type="email" placeholder="Email" className="validate form col s4" />
+                            <div className="col s1"></div>
+                            <input id="password" type="password" placeholder="Password" className="validate form col s4" />
+                            <button id="signin-button" className="btn btn-primary">Sign In</button>
                     </div>
-                    <button className="btn btn-primary">Sign In</button>
+                    
                 </form>
-            </section>
+            </div>
         )
     }
 });
