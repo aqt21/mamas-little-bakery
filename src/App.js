@@ -45,34 +45,10 @@ var App = React.createClass({
 		//this.userRef = firebase.database().ref("Users");
 		
 	},
-	
-	signUp(event){
-		event.preventDefault();
-
-		//get form values
-		let email = event.target.elements['email'].value;
-		let password = event.target.elements['password'].value;
-		let displayName = event.target.elements['displayName'].value;
-		let adminCode = event.target.elements['adminCode'].value;
-		var admin = (adminCode === this.ADMIN_CODE);
-		console.log(admin);
-		//update profile, admin: admin
-
-		//create user
-		firebase.auth().createUserWithEmailAndPassword(email,password)
-		.then((user)=> {
-			user.updateProfile({
-				displayName: displayName
-			}).then(() => {
-				this.setState({user:firebase.auth().currentUser});
-			})
-		});
-
-		event.target.reset();
-	},
 
 	signIn(event){
 		event.preventDefault();
+		console.log("sign in");
 
 		let email = event.target.elements['email'].value;
 		let password = event.target.elements['password'].value;
@@ -92,20 +68,12 @@ var App = React.createClass({
 			this.setState({user:null});
 		});
 	},
-
-	toggleLogin(){
-		let option = this.state.authOption == 'sign=in' ? 'sign-up' : 'sign-in';
-		this.setState({authOption:option});
-	},
 	
 	render() {
-		//auth stuff
-		if(this.state.authOption == 'sign-up') {
-			var authComponent = <SignUp submit={this.signUp}/>
-		}
-		else{
-			var authComponent = <SignIn submit={this.signIn}/>
-		}
+		const childrenWithProps = React.Children.map(this.props.children, 
+			(child) => React.cloneElement(child, {
+				user: this.state.user
+			}));
 
 		// Return links and show anything inside the <App> component (children)
 		return (
@@ -123,9 +91,15 @@ var App = React.createClass({
 
 
 					<div className='children'>
-						{this.props.children}
+						{childrenWithProps}
 					</div>
-					<SignIn submit={this.signIn} />
+					{!this.state.user &&
+						<SignIn submit={this.signIn} />
+					}
+					{this.state.user &&
+						<SignOut submit={this.signOut} />
+					}
+					
 				</div>
 		);
 	}

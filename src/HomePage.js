@@ -29,6 +29,8 @@ var HomePage = React.createClass({
 	
 	// Render a <HomeItem> element
 	render() {
+
+		console.log(this.props.user);
 		//let backImgs = Object.keys(this.state.imgs);
 		//var backgroundImg1 = this.state.imgs[0].img;
 		//var backgroundImg2 = this.state.imgs[1].img;
