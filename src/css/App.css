@@ -26,6 +26,10 @@ body {
 	margin: 0 20px;
 }
 
+#inputs{
+	display:none;
+}
+
 /*#signin {
 	position: relative;
 	top:10px;
