@@ -26,6 +26,10 @@ body {
 	margin: 0 20px;
 }
 
+footer {
+	padding: 15px 0;
+}
+
 #inputs{
 	display:none;
 }
@@ -53,7 +57,7 @@ h5, h6, div, .navbar {
 	text-align: center;
 }
 
-h1, #footer, .btn {
+h1, footer, .btn {
 	background-color: #5B2C6F !important;
 }
 
@@ -88,8 +92,6 @@ input[type=text]:focus:not([readonly]), input[type=email]:focus, input[type=pass
 #signin-button {
 	margin-left: 5px;
 }
-
-
 
 
 /* Screen sizes */

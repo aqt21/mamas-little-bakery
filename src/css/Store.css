@@ -1,4 +1,8 @@
 /* Store Page */
+.buybtn:hover{
+	cursor: pointer;
+}
+
 #cardimg {
 	height: 200px;
 }
@@ -82,6 +86,8 @@ i {
 .submit {
 	z-index: 0;
 }
+
+
 
 /* Screen sizes */
 @media (min-width: 768px) {

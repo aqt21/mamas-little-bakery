@@ -79,14 +79,14 @@ var App = React.createClass({
 						{childrenWithProps}
 					</div>
 					
-					<div id='footer'>
+					<footer>
 						{!this.state.user &&
 							<SignIn submit={this.signIn} />
 						}
 						{this.state.user &&
 							<SignOut submit={this.signOut} />
 						}
-					</div>
+					</footer>
 				</div>
 		);
 	}

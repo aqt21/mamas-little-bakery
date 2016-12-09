@@ -11,7 +11,7 @@ import FirebaseConfig from './Config';
 // BlogPage Component
 var BlogPage = React.createClass({
 	getInitialState(){
-		return{blogItems:[], isUploading:false, uploadPicUrl:""}
+		return{blogItems:[], fileName:"", isUploading:false, uploadPicUrl:""}
 	},
 
 	// When component mounts, get the data and set the state of 'blogItems'
@@ -32,17 +32,17 @@ var BlogPage = React.createClass({
 		if (event.target.title.value !== "") {
 			// Get form info
 			var d = new Date();
-			let post = {
+			this.blogRef.push({
 				title:event.target.title.value,
 				imgurl: this.state.uploadPicUrl,
 				content:event.target.content.value,
 				date: ((d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes()),
 				likes:0,
-			};
-			this.blogRef.push(post);
+			});
 		} else {
 			alert("Post must have a title.");
 		}
+		this.setState({fileName: ""});
         event.target.reset();
     },
 
@@ -59,13 +59,9 @@ var BlogPage = React.createClass({
     },
 
 	handleUploadStart(){
-		this.setState({isUploading: true})
+		this.setState({isUploading: true, fileName: $("#file-uploader").val().split('\\').pop()})
 	},
-	
-	handleProgress(progress){
-		
-	},
-	
+
 	handleUploadError(error){
 	  this.setState({isUploading: false});
 	  console.error(error);
@@ -78,16 +74,21 @@ var BlogPage = React.createClass({
 	
 	// Render a <BlogItem> element for each element in the state
 	render() {
+		var a = Object.keys(this.state.blogItems);
+		a.reverse();
 		return (
 			<div className='container' id='blog'>
-				<PostBox handleSubmit={this.createPost}
-					isUploading={this.state.isUploading}
-					handleUploadStart={this.handleUploadStart}
-					handleUploadError={this.handleUploadError}
-					handleUploadSuccess={this.handleUploadSuccess}
-					handleProgress={this.handleProgress}
-				/>
-				{Object.keys(this.state.blogItems).map((d) => {
+				{(this.props.user ?
+					<PostBox handleSubmit={this.createPost}
+						isUploading={this.state.isUploading}
+						handleUploadStart={this.handleUploadStart}
+						handleUploadError={this.handleUploadError}
+						handleUploadSuccess={this.handleUploadSuccess}
+						handleProgress={this.handleProgress}
+						filename={this.state.fileName}
+					/>
+				:false)}
+				{a.map((d) => {
 					return <BlogItem key={d} data={this.state.blogItems[d]} likePost={() => this.likePost(d)}
 					/>
 				})}

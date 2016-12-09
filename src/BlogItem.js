@@ -28,6 +28,11 @@ var BlogItem = React.createClass({
 						<h5>{this.props.data.title}</h5>
 						<div className='likes' onClick={this.props.likePost}>{this.props.data.likes}  <i className="fa fa-heart like-button" aria-hidden="true"></i></div>
 						<p className='date'>{this.props.data.date}</p>
+						
+						{!this.state.expanded ?
+							<div className='text-preview'>{this.props.data.content.substring(0,110) + " ..."}</div>
+						:false}
+						
 					</div>	
 					
 					{this.state.expanded ?

@@ -38,9 +38,7 @@ var StorePage = React.createClass({
 		
 		this.setState({uploadPicUrl: "", fileName: ""});
 		
-		$("#title").val("");
-		$("#description").val("");
-		$("#price").val("");
+		event.target.reset();
 	},
 	
 	showProductInfo(event) {
@@ -74,9 +72,6 @@ var StorePage = React.createClass({
 	
 	// Render a <StoreItem> element for each element in the state
 	render() {
-		let storeKeys = Object.keys(this.state.storeItems).sort((a,b) => {
-            return this.state.storeItems[b].likes - this.state.storeItems[a].likes
-        });
 		
 		let currRef = this.state.currRefId;
 		
@@ -157,7 +152,7 @@ var StorePage = React.createClass({
 						)}
 						
 						<div className="row">
-						{storeKeys.map((d) => {
+						{Object.keys(this.state.storeItems).map((d) => {
 								return <StoreItem user={this.props.user} key={d} productRef={d} data={this.state.storeItems[d]} handleTrash={this.removeProduct} handleClick={this.showProductInfo}/>
 							})}
 						</div>
