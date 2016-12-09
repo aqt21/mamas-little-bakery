@@ -30,34 +30,7 @@ body {
 	display:none;
 }
 
-/*#signin {
-	position: relative;
-	top:10px;
-	right: -250px;
-	float: right;
-}
-
-button{
-	display: inline;
-}
-
-.form{
-	margin-right: 10px;
-}
-
-.inputs{
-	position: relative;
-	left: 400px;
-	top:-10px;
-}
-
-#signin-button {
-	position: relative;
-	top:-30px;
-	right: -150px;
-}*/
-
-a.link, .homelink {
+a.link, .content a, .homelink {
 	text-transform: uppercase;
 }
 
@@ -67,6 +40,7 @@ a.link, #contact a {
 }
 
 h1 {
+	background-color: #5B2C6F;
 	color: white;
 	font-size: 36px !important;
 	font-weight: 100 !important;

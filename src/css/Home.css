@@ -1,7 +1,7 @@
 /* Home Page */
 
 #home{
-	background-image: url('home1.jpg');
+	background-image: url('home_bakery.png');
 	background-size: cover;
 	background-attachment: fixed;
 	padding:30px;
@@ -30,6 +30,11 @@
 	background-color: #BB6B25 !important ;
 }
 
+i{
+	margin-bottom: 20px;
+	color: white;
+}
+
 .hometext{
 	color: #FDEBD0;
 	font-family: Roboto;
@@ -37,13 +42,34 @@
 }
 
 @media (min-width: 768px) {
-	.home-item img {
-		margin-bottom: 0;
+	.home-item .card-panel{
+		display: flex;
+		justify-content: space-between;
 	}
+
+	.home-item, .about-item{
+	width:75%;
+	padding: 40px;
+	background-color: #784212;
+	margin: 30px auto;
+	position:relative;
+}
+
+}
+
+@media (min-width: 992px) {
 	
 	.home-item .card-panel{
 		display: flex;
 		justify-content: space-between;
+	}
+
+	.home-item, .about-item{
+		width:70%;
+		padding: 80px;
+		background-color: #784212;
+		margin: 30px auto;
+		position:relative;
 	}
 
 }

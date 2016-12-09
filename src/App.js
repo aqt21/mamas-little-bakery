@@ -31,24 +31,10 @@ var App = React.createClass({
 			this.setState({checked:true})
 		});
 		
-		
-		this.codeRef = firebase.database().ref("AdminCode");
-		var adminCodeArray;
-		this.codeRef.on("value", (snapshot)=> {
-			console.log("success");
-			if(snapshot.val()){
-				adminCodeArray = snapshot.val();
-				console.log(adminCodeArray);
-			}
-		});
-		//this.ADMIN_CODE = adminCodeArray[0];
-		//this.userRef = firebase.database().ref("Users");
-		
 	},
 
 	signIn(event){
 		event.preventDefault();
-		console.log("sign in");
 
 		let email = event.target.elements['email'].value;
 		let password = event.target.elements['password'].value;

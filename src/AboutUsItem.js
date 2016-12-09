@@ -1,4 +1,5 @@
 import React from 'react';
+import '../node_modules/font-awesome/css/font-awesome.css';
 
 // Returns a about us item containing the experience, position I held, date, and description.
 var AboutUsItem = React.createClass({
@@ -6,9 +7,8 @@ var AboutUsItem = React.createClass({
 		return(
 			<div className='about-item'>
 				<div>
-					<p className="hometext">Mama's Little Bakery is a small, family-owned bakery based in Port Angeles. 
-					We strive to make delicious homemade breads with a variety of grains and flours to enrich them with nutrients. 
-					Our goal is to find ways to make bread both appealing in taste and nutritional value. </p>
+					<i className="fa fa-birthday-cake medium"></i>
+					<p className="hometext">{this.props.info}</p>
 				</div>
 					
 			</div>
