@@ -1,4 +1,8 @@
 /* Store Page */
+#store {
+	margin-top: 40px;
+}
+
 .buybtn:hover{
 	cursor: pointer;
 }
@@ -85,11 +89,4 @@ i {
 
 .submit {
 	z-index: 0;
-}
-
-
-
-/* Screen sizes */
-@media (min-width: 768px) {
-	
 }

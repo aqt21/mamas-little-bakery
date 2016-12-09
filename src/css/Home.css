@@ -1,9 +1,6 @@
 /* Home Page */
 
 #home{
-	background-image: url('home_bakery.png');
-	background-size: cover;
-	background-attachment: fixed;
 	padding:30px;
 	width:100%;
 	margin:0 auto;
