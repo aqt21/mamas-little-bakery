@@ -104,50 +104,52 @@ var StorePage = React.createClass({
 						)}
 						
 						{(this.props.user ?
-						<form className="col s12 active" onSubmit = {this.createProduct}>
-							<div className="input-field col s6">
-								<input id="title" type="text"></input>
-								<label htmlFor="title">Product Title</label>
-							</div>
-							
-							<div className="input-field col s6" >
-								<textarea className="materialize-textarea" id="description" type="text"></textarea>
-								<label htmlFor="description">Product Description</label>
-							</div>
-							
-							<div className="input-field col s6">
-								<input id="price" type="text"></input>
-								<label htmlFor="price">Product Price</label>
-							</div>
-							
-							<div className="input-field col s6">
-								<FileUploader
-									className="file-path validate"
-									id="file-uploader"
-									accept="image/*"
-									randomizeFilename
-									storageRef={firebase.storage().ref("images")}
-									onUploadStart={this.handleUploadStart}
-									onUploadError={this.handleUploadError}
-									onUploadSuccess={this.handleUploadSuccess}
-									onProgress={this.handleProgress}
-								  />
-								<div className="btn waves-effect waves-light"><label id="imagebtn" htmlFor="file-uploader"></label>Upload An Image</div>
+						<div className="card-panel">
+							<form className="col s12 active" onSubmit = {this.createProduct}>
+								<div className="input-field col s6">
+									<input id="title" type="text"></input>
+									<label htmlFor="title">Product Title</label>
+								</div>
 								
-								{(this.state.isUploading ?
-									<div>
-										<br />
-										<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-										<span className="sr-only">Loading...</span>
-										<p className="center-align">Uploading image. Please Wait.</p>
-									</div>
-								: [(this.state.fileName ? <p key={this.state.fileName} className="center-align">Finished Uploading {this.state.fileName}</p> : false)]
-								)}							
-							</div>
-							
-							<br />
-							<button id="productsubmit" type="submit" disabled={this.state.isUploading} className="submit btn waves-effect waves-light" name="action">Post Product For Sale</button>
-						</form>
+								<div className="input-field col s6" >
+									<textarea className="materialize-textarea" id="description" type="text"></textarea>
+									<label htmlFor="description">Product Description</label>
+								</div>
+								
+								<div className="input-field col s6">
+									<input id="price" type="text"></input>
+									<label htmlFor="price">Product Price</label>
+								</div>
+								
+								<div className="input-field col s6">
+									<FileUploader
+										className="file-path validate"
+										id="file-uploader"
+										accept="image/*"
+										randomizeFilename
+										storageRef={firebase.storage().ref("images")}
+										onUploadStart={this.handleUploadStart}
+										onUploadError={this.handleUploadError}
+										onUploadSuccess={this.handleUploadSuccess}
+										onProgress={this.handleProgress}
+									  />
+									<div className="btn waves-effect waves-light"><label id="imagebtn" htmlFor="file-uploader"></label>Upload An Image</div>
+									
+									{(this.state.isUploading ?
+										<div>
+											<br />
+											<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+											<span className="sr-only">Loading...</span>
+											<p className="center-align">Uploading image. Please Wait.</p>
+										</div>
+									: [(this.state.fileName ? <p key={this.state.fileName} className="center-align">Finished Uploading {this.state.fileName}</p> : false)]
+									)}							
+								</div>
+								
+								<br />
+								<button id="productsubmit" type="submit" disabled={this.state.isUploading} className="submit btn waves-effect waves-light" name="action">Post Product For Sale</button>
+							</form>
+						</div>
 						: false
 						)}
 						
