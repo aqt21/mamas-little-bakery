@@ -11,18 +11,18 @@
 
 .homelink{
 	border: 2px solid white;
-	padding: 16px;
+	padding: 6px;
 	color: white;
 	text-decoration: none;
-	font-size: 1.5em;
-	margin:30px auto;
+	font-size: 1.1em;
+	margin:10px auto;
 }
 
 .home-item, .about-item{
-	width:70%;
-	padding: 80px;
+	width:96%;
+	padding: 20px 16px;
 	background-color: #784212;
-	margin: 30px auto;
+	margin: 10px auto;
 	position:relative;
 }
 
@@ -53,7 +53,13 @@ i{
 	background-color: #784212;
 	margin: 30px auto;
 	position:relative;
-}
+	}
+
+	.homelink{
+		padding: 16px;
+		font-size: 1.5em;
+		margin:30px auto;
+	}
 
 }
 
@@ -65,7 +71,7 @@ i{
 	}
 
 	.home-item, .about-item{
-		width:70%;
+		width:68%;
 		padding: 80px;
 		background-color: #784212;
 		margin: 30px auto;
