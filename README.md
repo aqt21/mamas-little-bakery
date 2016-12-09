@@ -11,6 +11,9 @@ Before viewing our project there are a couple things you must know.
 3. The login information to test from an admin perspective is the following:  
 Email: mamaslittlebakery@gmail.com  
 Password: cheesecake  
+  
+All of the Buy Now buttons in the store lead to a placerholder bread paypal page. We couldn't find a way to create a paypal page for every time a new product was added. If this were used by a real company then we would create a new paypal sale page for every new product that was added.  
+
 
 
 This website is hosted here: http://students.washington.edu/lac29/info343/mamas-little-bakery
