@@ -2,7 +2,6 @@
 
 
 .blog-item .card-panel{
-	position: relative;
 	overflow: auto;
 	clear: both;
 	padding: 0;
@@ -14,9 +13,24 @@
 
 .blog-item h5 {
 	float: left;
-	margin: 20px 0 30px 0 !important;
-	text-align: left;
-	/* text-transform: uppercase; */
+	margin: 0;
+}
+
+.blog-post h5 {
+	margin-top: 0;
+}
+
+.blog-item .date {
+	color: #b5b5b5;
+	font-size: 14px;
+	float: left;
+	clear: left;
+	font-style: italic;
+	margin-top: 5px;
+}
+
+.like-button {
+	float: right;
 }
 
 .blog-item img {
@@ -25,25 +39,7 @@
 }
 
 .blog-item .content {
-	padding: 20px 0;
-}
-
-.blog-item .date {
-	color: #b5b5b5;
-	font-size: 16px;
-	float: right;
-	margin-top: 20px;
-	font-style: italic;
-}
-
-#blog textarea {
-	font-size: 16px;
-}
-
-#like-icon {
-	position: absolute;
-	top: 15px;
-	right: 20px;
+	padding: 10px;
 }
 
 .toggle-expand {

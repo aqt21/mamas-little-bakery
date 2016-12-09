@@ -25,13 +25,14 @@ var BlogItem = React.createClass({
 				<div className='card-panel'>
 					<div className='content-header'>
 						<h5>{this.props.data.title}</h5>
-						<div id='like-icon' onClick={this.props.likePost}>{this.props.data.likes}  <i className="fa fa-heart" aria-hidden="true"></i></div>
+						<div className='like-button' onClick={this.props.likePost}>{this.props.data.likes}  <i className="fa fa-heart" aria-hidden="true"></i></div>
 						<p className='date'>{this.props.data.date}</p>
 					</div>	
+					
 					{this.state.expanded ?
 						<div>
 							<img src={this.props.data.imgurl} />
-							<p id='content-box'>{this.props.data.content}</p>
+							<p className='content'>{this.props.data.content}</p>
 						</div>
 					:false}
 					

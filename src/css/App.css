@@ -57,17 +57,16 @@ button{
 	right: -150px;
 }*/
 
-a.link, .content a, .homelink {
+a.link, .homelink {
 	text-transform: uppercase;
 }
 
-a.link, .content a, #contact a {
+a.link, #contact a {
     color: #b5b5b5;
 	transition: 0.6s ease;
 }
 
 h1 {
-	background-color: #7f0c0c;
 	color: white;
 	font-size: 36px !important;
 	font-weight: 100 !important;
@@ -81,9 +80,12 @@ h5, h6, div, .navbar {
 	text-align: center;
 }
 
-a.link.active, i, #contact a:hover, .blog-item h5, .content a:hover, .store-item h5, .about-us-item h5 {
-	color: #7f0c0c;
+h1, .btn {
+	background-color: #7f0c0c !important;
+}
 
+a.link.active, i, #blog h5, .store-item h5, .about-us-item h5 {
+	color: #7f0c0c;
 }
 
 #adminDiv{

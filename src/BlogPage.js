@@ -34,7 +34,7 @@ var BlogPage = React.createClass({
             title:event.target.title.value,
 			imgurl: this.state.uploadPicUrl,
             content:event.target.content.value,
-			date: ((d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear() + "   " + d.getHours() + ":" + d.getMinutes()),
+			date: ((d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes()),
             likes:0,
         };
         this.blogRef.push(post);

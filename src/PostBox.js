@@ -8,6 +8,7 @@ var PostBox = React.createClass({
         return(
             <div className='blog-post'>
 				<div className='card-panel'>
+					<h5>Make a Post</h5>
 					<form onSubmit = {this.props.handleSubmit}>
 						<div className="input-field col s12">
 							<input id="title" type="text" />
@@ -17,7 +18,6 @@ var PostBox = React.createClass({
 						<div className="input-field col s12">
 						   <textarea id='content' className='materialize-textarea' placeholder="start writing your post..." ></textarea>
 						</div>
-						
 											
 						<div className="file-field input-field col s12">
 							<div className="btn">
@@ -42,7 +42,7 @@ var PostBox = React.createClass({
 							  />
 						</div>
 						
-						 <button type="submit" className="btn"><i className="fa fa-pencil" aria-hidden="true"></i></button>
+						 <button type="submit" className="btn">post</button>
 					</form>
 				</div>
 			</div>	
