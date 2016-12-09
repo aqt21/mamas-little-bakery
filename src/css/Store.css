@@ -59,7 +59,7 @@
 	color:red;
 }
 
-.trash:hover, .exit:hover {
+.trash:hover, .exit:hover, .infobtn:hover {
 	cursor:pointer;
 }
 

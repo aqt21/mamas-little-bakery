@@ -47,7 +47,7 @@
 }
 
 .blog-item .text {
-	padding: 10px;
+	padding: 0px 25px;
 }
 
 .toggle-expand {
@@ -80,13 +80,13 @@
 	}
 	
     #blog {
-        width: 500px; 
+        width: 600px; 
     } 
 }
 
 @media (min-width: 992px) {
     #blog  {
-        width: 600px; 
+        width: 700px; 
     } 
 }
 
