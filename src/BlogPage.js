@@ -73,7 +73,6 @@ var BlogPage = React.createClass({
 	handleUploadSuccess(filename){
 	  this.setState({avatar: filename, isUploading: false});
 	  firebase.storage().ref('images').child(filename).getDownloadURL().then(url => this.setState({uploadPicUrl: url}));
-		console.log(this.state.uploadPicUrl);
 	},
 	
 	// Render a <BlogItem> element for each element in the state

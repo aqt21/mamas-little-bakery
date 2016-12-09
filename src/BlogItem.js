@@ -25,7 +25,7 @@ var BlogItem = React.createClass({
 				<div className='card-panel'>
 					<div className='content-header'>
 						<h5>{this.props.data.title}</h5>
-						<div className='like-button' onClick={this.props.likePost}>{this.props.data.likes}  <i className="fa fa-heart" aria-hidden="true"></i></div>
+						<div className='likes' onClick={this.props.likePost}>{this.props.data.likes}  <i className="fa fa-heart like-button" aria-hidden="true"></i></div>
 						<p className='date'>{this.props.data.date}</p>
 					</div>	
 					

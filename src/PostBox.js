@@ -31,7 +31,7 @@ var PostBox = React.createClass({
 							</div>
 						</div>
 						
-						<div className="input-field col s6">
+						<div id='upload' className="input-field col s6">
 							<FileUploader
 								accept="image/*"
 								randomizeFilename
