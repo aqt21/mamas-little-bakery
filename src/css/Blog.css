@@ -1,7 +1,15 @@
 /* Blog Page */
 
-.blog-item {
+
+.blog-item .card-panel{
 	position: relative;
+	overflow: auto;
+	clear: both;
+	padding: 0;
+}
+.blog-item .content-header {
+	height: 100%;
+	margin: 20px;
 }
 
 .blog-item h5 {
@@ -36,6 +44,12 @@
 	position: absolute;
 	top: 15px;
 	right: 20px;
+}
+
+.toggle-expand {
+	border-top: 1px solid #d3d3d3;
+	clear: both;
+	padding: 5px;
 }
 
 /* Screen sizes */
