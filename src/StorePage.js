@@ -61,9 +61,12 @@ var StorePage = React.createClass({
 	},
 	
 	hideProduct() {
-		console.log("hi");
 		$("#productcover").animate({opacity: 0}, 300);
 		this.setState({showInfo:false});
+	},
+	
+	removeProduct(event) {
+		this.storeRef.child(event.target.id).remove();
 	},
 	
 	// Render a <StoreItem> element for each element in the state
@@ -73,34 +76,36 @@ var StorePage = React.createClass({
         });
 		
 		let currRef = this.state.currRefId;
-
+		
 		return (
 			<div>
 				<div id='store'>
 					<div className='container'>
-						<form className="col s12 active" onSubmit = {this.createProduct}>
-							{(this.state.showInfo ?
-								<div className="card horizontal" id="productinfo">
-									<div id="exitcontainer" onClick={this.hideProduct}>
-										<i className="fa fa-times exit" aria-hidden="true"></i>
+						{(this.state.showInfo ?
+							<div className="card horizontal" id="productinfo">
+								<div id="exitcontainer" onClick={this.hideProduct}>
+									<i className="fa fa-times exit" aria-hidden="true"></i>
+								</div>
+								
+								<div className="card-image">
+									<img src={this.state.storeItems[currRef].imgurl} />
+								</div>
+								<div className="card-stacked">
+									<div className="card-content">
+									<h2>{this.state.storeItems[currRef].title}</h2>
+									<p>{this.state.storeItems[currRef].description}</p>
+									<p>{this.state.storeItems[currRef].price}</p>
 									</div>
-									
-									<div className="card-image">
-										<img src={this.state.storeItems[currRef].imgurl} />
-									</div>
-									<div className="card-stacked">
-										<div className="card-content">
-										<h2>{this.state.storeItems[currRef].title}</h2>
-										<p>{this.state.storeItems[currRef].description}</p>
-										<p>{this.state.storeItems[currRef].price}</p>
-										</div>
-										<div className="card-action">
-											<a href="#">Buy Now</a>
-										</div>
+									<div className="card-action">
+										<a href="#">Buy Now</a>
 									</div>
 								</div>
-							: false
-							)}
+							</div>
+						: false
+						)}
+						
+						{(this.props.user ?
+						<form className="col s12 active" onSubmit = {this.createProduct}>
 							<div className="input-field col s6">
 								<input id="title" type="text"></input>
 								<label htmlFor="title">Product Title</label>
@@ -118,6 +123,7 @@ var StorePage = React.createClass({
 							
 							<div className="input-field col s6">
 								<FileUploader
+									className="file-path validate"
 									accept="image/*"
 									randomizeFilename
 									storageRef={firebase.storage().ref("images")}
@@ -127,11 +133,16 @@ var StorePage = React.createClass({
 									onProgress={this.handleProgress}
 								  />
 							</div>
+							
+							<br />
 							<button type="submit" className="submit btn waves-effect waves-light" name="action">Post Product<i className="material-icons right"></i></button>
 						</form>
+						: false
+						)}
+						
 						<div className="row">
 						{storeKeys.map((d) => {
-								return <StoreItem key={d} productRef={d} data={this.state.storeItems[d]} handleClick={this.showProductInfo}/>
+								return <StoreItem user={this.props.user} key={d} productRef={d} data={this.state.storeItems[d]} handleTrash={this.removeProduct} handleClick={this.showProductInfo}/>
 							})}
 						</div>
 					</div>

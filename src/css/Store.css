@@ -19,6 +19,13 @@
 	z-index: 900;
 }
 
+.trash{
+	position: absolute;
+	top: 215px;
+	left: 90%;
+	z-index: 900;
+}
+
 #productcover {
 	background-color: gray;
 	width: 100%;
@@ -41,6 +48,7 @@
 .submit {
 	z-index: 0;
 }
+
 /* Screen sizes */
 @media (min-width: 768px) {
 	
