@@ -58,8 +58,8 @@ h1, .btn {
 	background-color: #5B2C6F !important;
 }
 
-a.link.active, i, #blog h5, .store-item h5, .about-us-item h5 {
-	color: #BB6B25;
+a.link.active, #blog i, #blog h5, .store-item h5, .about-us-item h5 {
+	color: #5B2C6F;
 }
 
 label.active {
@@ -68,12 +68,11 @@ label.active {
 
 textarea:focus {
   border-bottom: 1px solid #BB6B25 !important;
-  -webkit-box-shadow: 0 1px 0 0 #BB6B25 !important;
-  -moz-box-shadow: 0 1px 0 0 #BB6B25 !important;
+
   box-shadow: 0 1px 0 0 #BB6B25 !important;
 }
 
-input[type=text]:focus:not([readonly]) {
+input[type=text]:focus:not([readonly]), input[type=email]:focus, input[type=password]:focus{
 	border-bottom: 1px solid #BB6B25 !important;
     box-shadow: 0 1px 0 0 #BB6B25 !important;
 }

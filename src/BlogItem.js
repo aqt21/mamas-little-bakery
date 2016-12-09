@@ -7,6 +7,7 @@ var BlogItem = React.createClass({
 	},
 
 	handleClick(){
+		console.log(this.props.data.imgurl);
 		var isExpanded = !this.state.expanded;
 		this.setState({expanded:isExpanded});
 		console.log(this.state.expanded);
@@ -30,9 +31,9 @@ var BlogItem = React.createClass({
 					</div>	
 					
 					{this.state.expanded ?
-						<div>
-							<img src={this.props.data.imgurl} />
-							<p className='content'>{this.props.data.content}</p>
+						<div className='content'>
+							{this.props.data.imgurl ? <img src={this.props.data.imgurl} />:false}
+							{this.props.data.content ? <p className='text'>{this.props.data.content}</p>:false}
 						</div>
 					:false}
 					

@@ -9,7 +9,7 @@ var PostBox = React.createClass({
             <div className='blog-post'>
 				<div className='card-panel'>
 					<h5>Make a Post</h5>
-					<form onSubmit = {this.props.handleSubmit}>
+					<form onSubmit={this.props.handleSubmit}>
 						<div className="input-field col s12">
 							<input id="title" type="text" />
 							<label htmlFor="title">Title</label>
@@ -18,17 +18,6 @@ var PostBox = React.createClass({
 						<div className="input-field col s12">
 							<textarea id='content' className='materialize-textarea'></textarea>
 							<label htmlFor="content">Text</label>
-						</div>
-											
-						<div className="file-field input-field col s12">
-							<div className="btn waves-effect waves-light">
-								<span>Photo</span>
-								<input type="file" id="pic-upload" />
-							</div>
-							
-							<div className="file-path-wrapper">
-								<input id="file-name" className="file-path validate" type="text" />
-							</div>
 						</div>
 						
 						<div id='upload' className="input-field col s6">
@@ -40,10 +29,10 @@ var PostBox = React.createClass({
 								onUploadError={this.props.handleUploadError}
 								onUploadSuccess={this.props.handleUploadSuccess}
 								onProgress={this.props.handleProgress}
-							  />
+							/>
 						</div>
 						
-						 <button type="submit" className="btn waves-effect waves-light">post</button>
+						 <button type="submit" className="btn waves-effect waves-light" disabled={this.props.isUploading}>post</button>
 					</form>
 				</div>
 			</div>	

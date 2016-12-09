@@ -33,12 +33,16 @@
 	float: right;
 }
 
+.blog-item .content {
+	clear: both;
+}
+
 .blog-item img {
 	border: 1px solid #b5b5b5;
 	width: 100%;
 }
 
-.blog-item .content {
+.blog-item .text {
 	padding: 10px;
 }
 
@@ -52,8 +56,17 @@
 	cursor: pointer;
 }
 
-#upload input {
-	color: red;
+/* input[type=file]{ */
+	/* width: 0.1px; */
+	/* height: 0.1px; */
+	/* opacity: 0; */
+	/* overflow: hidden; */
+	/* position: absolute; */
+	/* z-index: -1; */
+/* } */
+
+#blog .fa-heart {
+	color: #c92e2e;
 }
 
 /* Screen sizes */

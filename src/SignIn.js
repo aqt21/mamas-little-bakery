@@ -13,11 +13,10 @@ var SignIn = React.createClass({
                 <p onClick={this.show}>Administrator Sign-In</p>
                 <form onSubmit={this.props.submit} className="col s4 authenticate" id="sign-up">
                     <div className="row" id="inputs">
-                        
-                            <input id="email" type="email" placeholder="Email" className="validate form col s4" />
-                            <div className="col s1"></div>
-                            <input id="password" type="password" placeholder="Password" className="validate form col s4" />
-                            <button id="signin-button" className="btn btn-primary">Sign In</button>
+						<input id="email" type="email" placeholder="Email" className="validate form col s4" />
+						<div className="col s1"></div>
+						<input id="password" type="password" placeholder="Password" className="validate form col s4" />
+						<button id="signin-button" className="btn btn-primary">Sign In</button>
                     </div>
                     
                 </form>
