@@ -10,7 +10,7 @@ import FileUploader from 'react-firebase-file-uploader';
 // StorePage Component
 var StorePage = React.createClass({
 	getInitialState(){
-		return{storeItems:[], isUploading:false, uploadPicUrl:"", currRefId:"", showInfo:false}
+		return{storeItems:[], fileName:"", isUploading:false, uploadPicUrl:"", currRefId:"", showInfo:false}
 	},
 
 	// When component mounts, get the data and set the state of 'storeItems'
@@ -35,6 +35,12 @@ var StorePage = React.createClass({
 			description: event.target.elements["description"].value,
 			price: "$" + event.target.elements["price"].value
 		});
+		
+		this.setState({uploadPicUrl: "", fileName: ""});
+		
+		$("#title").val("");
+		$("#description").val("");
+		$("#price").val("");
 	},
 	
 	showProductInfo(event) {
@@ -43,11 +49,7 @@ var StorePage = React.createClass({
 	},
 	
 	handleUploadStart(){
-		this.setState({isUploading: true})
-	},
-	
-	handleProgress(progress){
-		
+		this.setState({isUploading: true, fileName: $("#file-uploader").val().split('\\').pop()});
 	},
 	
 	handleUploadError(error){
@@ -58,6 +60,7 @@ var StorePage = React.createClass({
 	handleUploadSuccess(filename){
 	  this.setState({avatar: filename, isUploading: false});
 	  firebase.storage().ref('images').child(filename).getDownloadURL().then(url => this.setState({uploadPicUrl: url}));
+
 	},
 	
 	hideProduct() {
@@ -94,7 +97,8 @@ var StorePage = React.createClass({
 									<div className="card-content">
 									<h2>{this.state.storeItems[currRef].title}</h2>
 									<p>{this.state.storeItems[currRef].description}</p>
-									<p>{this.state.storeItems[currRef].price}</p>
+									<br />
+									<p>{"Price: " + this.state.storeItems[currRef].price}</p>
 									</div>
 									<div className="card-action">
 										<a href="#">Buy Now</a>
@@ -124,6 +128,7 @@ var StorePage = React.createClass({
 							<div className="input-field col s6">
 								<FileUploader
 									className="file-path validate"
+									id="file-uploader"
 									accept="image/*"
 									randomizeFilename
 									storageRef={firebase.storage().ref("images")}
@@ -132,10 +137,21 @@ var StorePage = React.createClass({
 									onUploadSuccess={this.handleUploadSuccess}
 									onProgress={this.handleProgress}
 								  />
+								<div className="btn waves-effect waves-light"><label id="imagebtn" htmlFor="file-uploader"></label>Upload An Image</div>
+								
+								{(this.state.isUploading ?
+									<div>
+										<br />
+										<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+										<span className="sr-only">Loading...</span>
+										<p className="center-align">Uploading image. Please Wait.</p>
+									</div>
+								: [(this.state.fileName ? <p key={this.state.fileName} className="center-align">Finished Uploading {this.state.fileName}</p> : false)]
+								)}							
 							</div>
 							
 							<br />
-							<button type="submit" className="submit btn waves-effect waves-light" name="action">Post Product<i className="material-icons right"></i></button>
+							<button id="productsubmit" type="submit" disabled={this.state.isUploading} className="submit btn waves-effect waves-light" name="action">Post Product For Sale</button>
 						</form>
 						: false
 						)}
