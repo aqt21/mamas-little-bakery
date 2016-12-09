@@ -4,6 +4,7 @@ import './css/Blog.css';
 import firebase from 'firebase';
 import $ from 'jquery';
 import BlogItem from './BlogItem';
+import PostBox from './PostBox';
 import FirebaseConfig from './Config';
 
 // BlogPage Component
@@ -16,9 +17,7 @@ var BlogPage = React.createClass({
 	componentDidMount(){
 
 		this.blogRef = firebase.database().ref("Blog");
-		console.log("success");
 		this.blogRef.on("value", (snapshot)=> {
-			console.log("success");
 			if(snapshot.val()){
 				this.setState({blogItems:snapshot.val()});
 			}
@@ -26,55 +25,43 @@ var BlogPage = React.createClass({
 		$('#blog').animate({opacity: '1'}, "slow");
 	},
 	
-	makePost(){
-		
-	},
-	
+	 // Function to create a new post
+    createPost(event) {
+        event.preventDefault();
+		var d = new Date();
+        // Get form info
+        let post = {
+            title:event.target.title.value,
+            content:event.target.content.value,
+			date: ((d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear() + "   " + d.getHours() + ":" + d.getMinutes()),
+            likes:0,
+        };
+        this.blogRef.push(post);
+        event.target.reset();
+    },
+
+    // Function to like a post
+    likePost(postId) {
+        let ref = this.blogRef.child(postId);
+        ref.once('value').then(function(snapshot) {
+            var newLikes = parseInt(snapshot.val().likes) + 1;
+            console.log(newLikes)
+            // Update on firebase
+            ref.update({
+                likes: newLikes
+            });
+        });
+    },
 
 	
 	// Render a <BlogItem> element for each element in the state
 	render() {
-		let blogKeys = Object.keys(this.state.blogItems).sort((a,b) => {
-            return this.state.blogItems[b].likes - this.state.blogItems[a].likes
-        });
-		
 		return (
 			<div className='container' id='blog'>
-				<div className='blog-post'>
-					<div className='card-panel'>
-						<form className="col s12">
-							<div className="row">
-								<div className="input-field col s12">
-									<input id="title" type="text" />
-									<label htmlFor="title">title</label>
-								</div> 
-								
-								<div className="input-field col s12">
-								   <textarea className="materialize-textarea" placeholder="start writing your post..." ></textarea>
-								</div>
-							
-								<div className="file-field input-field col s12">
-									<div className="btn">
-										<span>Photo</span>
-										<input type="file" id="pic-upload" />
-									</div>
-									
-									<div className="file-path-wrapper">
-										<input id="file-name" className="file-path validate" type="text" />
-									</div>
-								</div>
-
-								<div id="post-button" className="btn-floating">
-									<i className="fa fa-pencil"></i>
-								</div>
-							
-							</div>
-						</form>
-					</div>
-				</div>	
-				
-				{blogKeys.map((d) => {
-					return <BlogItem key={d} data={this.state.blogItems[d]} />
+				<PostBox handleSubmit={this.createPost}/>
+				{Object.keys(this.state.blogItems).map((d) => {
+					return <BlogItem key={d} data={this.state.blogItems[d]} handleClick={() => this.likePost(d)}
+					/>
 				})}
 			</div>
 		);

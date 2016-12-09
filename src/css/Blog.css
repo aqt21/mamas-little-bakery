@@ -1,5 +1,8 @@
 /* Blog Page */
 
+.blog-item {
+	position: relative;
+}
 
 .blog-item h5 {
 	float: left;
@@ -27,6 +30,12 @@
 
 #blog textarea {
 	font-size: 16px;
+}
+
+#like-icon {
+	position: absolute;
+	top: 15px;
+	right: 20px;
 }
 
 /* Screen sizes */
