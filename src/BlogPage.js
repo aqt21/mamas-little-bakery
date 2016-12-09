@@ -27,23 +27,25 @@ var BlogPage = React.createClass({
 	
 	 // Function to create a new post
     createPost(event) {
-       
-		var d = new Date();
-        // Get form info
-        let post = {
-            title:event.target.title.value,
-			imgurl: this.state.uploadPicUrl,
-            content:event.target.content.value,
-			date: ((d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes()),
-            likes:0,
-        };
-        this.blogRef.push(post);
+		event.preventDefault();
+		
+		if (event.target.title.value !== "") {
+			var d = new Date();
+			// Get form info
+			let post = {
+				title:event.target.title.value,
+				imgurl: this.state.uploadPicUrl,
+				content:event.target.content.value,
+				date: ((d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes()),
+				likes:0,
+			};
+			this.blogRef.push(post);
+		}
         event.target.reset();
     },
 
     // Function to like a post
     likePost(postId) {
-		event.stopPropagation();
         let ref = this.blogRef.child(postId);
         ref.once('value').then(function(snapshot) {
             var newLikes = parseInt(snapshot.val().likes) + 1;
@@ -82,7 +84,8 @@ var BlogPage = React.createClass({
 					handleUploadStart={this.handleUploadStart}
 					handleUploadError={this.handleUploadError}
 					handleUploadSuccess={this.handleUploadSuccess}
-					handleProgress={this.handleProgress}/>
+					handleProgress={this.handleProgress}
+				/>
 				{Object.keys(this.state.blogItems).map((d) => {
 					return <BlogItem key={d} data={this.state.blogItems[d]} likePost={() => this.likePost(d)}
 					/>

@@ -127,7 +127,7 @@ var StorePage = React.createClass({
 									onProgress={this.handleProgress}
 								  />
 							</div>
-							<button type="submit" className="submit btn waves-effect waves-light light-blue lighten-2" name="action">Post Product<i className="material-icons right"></i></button>
+							<button type="submit" className="submit btn waves-effect waves-light" name="action">Post Product<i className="material-icons right"></i></button>
 						</form>
 						<div className="row">
 						{storeKeys.map((d) => {

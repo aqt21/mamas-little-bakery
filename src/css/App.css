@@ -88,6 +88,22 @@ a.link.active, i, #blog h5, .store-item h5, .about-us-item h5 {
 	color: #7f0c0c;
 }
 
+label.active {
+	color: #7f0c0c !important;
+}
+
+textarea:focus {
+  border-bottom: 1px solid #7f0c0c !important;
+  -webkit-box-shadow: 0 1px 0 0 #7f0c0c !important;
+  -moz-box-shadow: 0 1px 0 0 #7f0c0c !important;
+  box-shadow: 0 1px 0 0 #7f0c0c !important;
+}
+
+input[type=text]:focus:not([readonly]) {
+	border-bottom: 1px solid #7f0c0c !important;
+    box-shadow: 0 1px 0 0 #7f0c0c !important;
+}
+
 #adminDiv{
 	display:none;
 }
